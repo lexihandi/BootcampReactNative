@@ -9,7 +9,7 @@ var seventh = "it!";
 
 console.log("nomer 1");
 console.log(
-  word + " " + second + " " + third + " " + fourth + " " + fifth + " " + sixth + " " + seventh
+  `${word} ${second} ${third} ${fourth} ${fifth} ${sixth} ${seventh}`
 );
 console.log("\n");
 
