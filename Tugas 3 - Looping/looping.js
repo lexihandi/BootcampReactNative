@@ -40,9 +40,18 @@ for (var j = 1; j <= 4; j++) {
   console.log(str);
 }
 console.log("\n");
+
 //No 4
 console.log("Nomer 4");
+for (var j = 1; j <= 7; j++) {
+  var str = "";
+  for (var k = 1; k <= j; k++) {
+    str += "#";
+  }
+  console.log(str);
+}
 console.log("\n");
+
 //No 5
 console.log("Nomer 5");
 console.log("\n");
