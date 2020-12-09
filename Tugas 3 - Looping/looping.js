@@ -54,4 +54,15 @@ console.log("\n");
 
 //No 5
 console.log("Nomer 5");
+for (var j = 1; j <= 8; j++) {
+  var str = "";
+  for (var k = 1; k <= 8; k++) {
+    if ((j + k) % 2 !== 0) {
+      str += "#";
+    } else {
+      str += " ";
+    }
+  }
+  console.log(str);
+}
 console.log("\n");
