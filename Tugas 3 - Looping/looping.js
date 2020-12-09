@@ -32,6 +32,13 @@ console.log("\n");
 
 //No 3
 console.log("Nomer 3");
+for (var j = 1; j <= 4; j++) {
+  var str = "";
+  for (var k = 1; k <= 8; k++) {
+    str += "#";
+  }
+  console.log(str);
+}
 console.log("\n");
 //No 4
 console.log("Nomer 4");
