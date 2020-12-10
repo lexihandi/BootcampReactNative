@@ -17,6 +17,6 @@ console.log("\n");
 //Nomer 3
 console.log("Nomer 3");
 function Introduce(name, age, address, hobby) {
-  return `Nama saya ${name}, umur saya ${age}, alamat saya ${address}, dan saya punya hobby yaitu ${hobby}`;
+  return `Nama saya ${name}, umur saya ${age} tahun, alamat saya di ${address}, dan saya punya hobby yaitu ${hobby}!`;
 }
-console.log(Introduce("lexy", 22, "malang", "coding"));
+console.log(Introduce("Agus", 30, "Jln. Malioboro, Yogyakarta", "Gaming"));
