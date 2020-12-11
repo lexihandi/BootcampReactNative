@@ -17,7 +17,6 @@ function Range(start, end) {
     return result;
   }
 }
-
 console.log(Range(1, 10));
 console.log(Range(1));
 console.log(Range(11, 18));
@@ -52,6 +51,32 @@ console.log("\n");
 
 //Nomer 3
 console.log("Nomer 3");
+function sum(start, end, step = 1) {
+  if (!start) {
+    return 0;
+  } else if (!end) {
+    return start;
+  } else {
+    total = 0;
+    if (start < end) {
+      for (var i = start; i <= end; i += step) {
+        total += i;
+      }
+    } else {
+      for (var i = start; i >= end; i -= step) {
+        total += i;
+      }
+    }
+    return total;
+  }
+}
+
+console.log(sum(1, 10));
+console.log(sum(5, 50, 2));
+console.log(sum(15, 10));
+console.log(sum(20, 10, 2));
+console.log(sum(1));
+console.log(sum());
 console.log("\n");
 
 //Nomer 4
