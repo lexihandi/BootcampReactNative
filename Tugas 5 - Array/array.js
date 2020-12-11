@@ -70,7 +70,6 @@ function sum(start, end, step = 1) {
     return total;
   }
 }
-
 console.log(sum(1, 10));
 console.log(sum(5, 50, 2));
 console.log(sum(15, 10));
@@ -96,13 +95,23 @@ var input = [
   ["0003", "Winona", "Ambon", "25/12/1965", "Memasak"],
   ["0004", "Bintang Senjaya", "Martapura", "6/4/1970", "Berkebun"],
 ];
-
 dataHandling(input);
-
 console.log("\n");
 
 //Nomer 5
 console.log("Nomer 5");
+function balikKata(word) {
+  var reverse = "";
+  for (var i = word.length - 1; i >= 0; i--) {
+    reverse += word[i];
+  }
+  return reverse;
+}
+console.log(balikKata("Kasur Rusak"));
+console.log(balikKata("SanberCode"));
+console.log(balikKata("Haji Ijah"));
+console.log(balikKata("racecar"));
+console.log(balikKata("I am Sanbers"));
 console.log("\n");
 
 //Nomer 6
