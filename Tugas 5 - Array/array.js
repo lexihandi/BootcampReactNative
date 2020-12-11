@@ -81,6 +81,24 @@ console.log("\n");
 
 //Nomer 4
 console.log("Nomer 4");
+function dataHandling(data) {
+  for (var i = 0; i < data.length; i++) {
+    var dataa = data[i];
+    console.log(
+      `Nomor ID: ${dataa[0]} \nNama Lengkap: ${dataa[1]} \nTTL: ${dataa[2]} ${dataa[3]} \nHobi: ${dataa[4]} \n`
+    );
+  }
+}
+
+var input = [
+  ["0001", "Roman Alamsyah", "Bandar Lampung", "21/05/1989", "Membaca"],
+  ["0002", "Dika Sembiring", "Medan", "10/10/1992", "Bermain Gitar"],
+  ["0003", "Winona", "Ambon", "25/12/1965", "Memasak"],
+  ["0004", "Bintang Senjaya", "Martapura", "6/4/1970", "Berkebun"],
+];
+
+dataHandling(input);
+
 console.log("\n");
 
 //Nomer 5
