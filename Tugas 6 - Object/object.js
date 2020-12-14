@@ -117,4 +117,26 @@ console.log("\n");
 
 //nomer 3
 console.log("Nomer 3");
-console.log("\n");
+function naikAngkot(listPenumpang) {
+  rute = ["A", "B", "C", "D", "E", "F"];
+  var transaksi = [];
+  for (var i = 0; i < listPenumpang.length; i++) {
+    var obj = {
+      penumpang: listPenumpang[i][0],
+      naikDari: listPenumpang[i][1],
+      tujuan: listPenumpang[i][2],
+      bayar:
+        (rute.indexOf(listPenumpang[i][2]) -
+          rute.indexOf(listPenumpang[i][1])) *
+        2000,
+    };
+    transaksi.push(obj);
+  }
+  return transaksi;
+}
+console.log(
+  naikAngkot([
+    ["Dimitri", "B", "F"],
+    ["Icha", "A", "B"],
+  ])
+);
