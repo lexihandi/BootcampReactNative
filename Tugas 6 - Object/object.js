@@ -24,11 +24,11 @@ function arrayToObject(arr) {
         gender: arrs[2],
         age: calculateYear(arrs[3]),
       };
-      var objName = [i + 1] + ". " + people.firstName + " " + people.lastName;
+      var objName = `${i + 1}. ${people.firstName} ${people.lastName} `;
       console.log(objName + ": ");
       console.log(people);
     } else {
-      console.log(' "" ');
+      console.log("");
     }
   }
 }
@@ -42,12 +42,77 @@ var people2 = [
   ["Pepper", "Pots", "female", 2023],
 ];
 arrayToObject(people);
+console.log("\n");
 arrayToObject(people2);
 arrayToObject([]); //Error Case
 console.log("\n");
 
 //nomer 2
 console.log("Nomer 2");
+function shoppingTime(memberId, money) {
+  var saleItems = [
+    {
+      itemName: "Sepatu Stacattu",
+      price: 1500000,
+    },
+    {
+      itemName: "Baju Zoro",
+      price: 500000,
+    },
+    {
+      itemName: "Baju H&N",
+      price: 250000,
+    },
+    {
+      itemName: "Sweater Uniklooh",
+      price: 175000,
+    },
+    {
+      itemName: "Casing Handphone",
+      price: 50000,
+    },
+  ];
+
+  function itemPurchased(money, name) {
+    var list = [];
+    var pushName = name;
+    var item;
+    for (item of saleItems) {
+      if (item.price <= money) {
+        list.push(item[pushName]);
+      }
+    }
+    return list;
+  }
+
+  function moneyRemain(coin) {
+    var pay = coin;
+    var listprice = itemPurchased(coin, "price");
+    for (var i = 0; i < listprice.length; i++) {
+      pay -= listprice[i];
+    }
+    return pay;
+  }
+
+  if (memberId && money > 50000) {
+    return {
+      memberId: memberId,
+      money: money,
+      listPurchased: itemPurchased(money, "itemName"),
+      changeMoney: moneyRemain(money),
+    };
+  } else if (memberId && money < 50000) {
+    return "Mohon maaf uang tidak cukup";
+  } else if (!memberId) {
+    return "Mohon maaf, toko X hanya berlaku untuk member saja";
+  }
+}
+console.log(shoppingTime("1820RzKrnWn08", 2475000));
+console.log(shoppingTime("82Ku8Ma742", 170000));
+console.log(shoppingTime("", 2475000));
+console.log(shoppingTime("234JdhweRxa53", 15000));
+console.log(shoppingTime());
+
 console.log("\n");
 
 //nomer 3
