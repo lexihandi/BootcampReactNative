@@ -1,5 +1,9 @@
 //Nomer 1
 console.log("Nomer 1");
+const golden = () => {
+  console.log("this is golden!!");
+};
+golden();
 console.log("\n");
 
 //Nomer 2
