@@ -8,6 +8,14 @@ console.log("\n");
 
 //Nomer 2
 console.log("Nomer 2");
+const newFunction = (firstName, lastName) => {
+  return {
+    fullName() {
+      console.log(`${firstName} ${lastName}`);
+    },
+  };
+};
+newFunction("william", "imoh").fullName();
 console.log("\n");
 
 //Nomer 3
