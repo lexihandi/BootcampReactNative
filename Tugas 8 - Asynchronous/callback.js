@@ -1,3 +1,4 @@
+console.log('Nomer 1')
 function readBooks(time, book, callback) {
   console.log(`saya membaca ${book.name}`);
   setTimeout(function () {
@@ -10,9 +11,9 @@ function readBooks(time, book, callback) {
       callback(sisaWaktu);
     } else {
       console.log("waktu saya habis");
+      console.log('\n')
       callback(time);
     }
   }, book.timeSpent);
 }
-
 module.exports = readBooks;

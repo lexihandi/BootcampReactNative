@@ -6,9 +6,9 @@ var books = [
   { name: "Kalkulus", timeSpent: 4000 },
 ];
 
-const readBook = (initTime, index) => {
+const readBook = (time, index) => {
   if (books[index] !== undefined) {
-    readBooks(initTime, books[index], function (sisaWaktu) {
+    readBooks(time, books[index], function (sisaWaktu) {
       index++;
       readBook(sisaWaktu, index);
     });
