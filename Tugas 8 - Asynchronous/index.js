@@ -6,6 +6,7 @@ var books = [
   { name: "Kalkulus", timeSpent: 4000 },
 ];
 
+console.log('Nomer 1')
 const readBook = (time, index) => {
   if (books[index] !== undefined) {
     readBooks(time, books[index], function (sisaWaktu) {

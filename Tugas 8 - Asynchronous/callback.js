@@ -1,4 +1,3 @@
-console.log('Nomer 1')
 function readBooks(time, book, callback) {
   console.log(`saya membaca ${book.name}`);
   setTimeout(function () {
