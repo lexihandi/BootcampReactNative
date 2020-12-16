@@ -7,17 +7,14 @@ var books = [
 ];
 
 console.log("Nomer 2");
-function readPromise(time, index) {
-  if (books[index] !== undefined) {
-    readBooksPromise(time, books[index])
-      .then(function (fulfilled) {
-        index++;
-        readPromise(fulfilled, index);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-}
+const readBooks = (time, books) => {
+  readBooksPromise(time, books[0])
+    .then(function (sisaWaktu) {
+      readBooks(sisaWaktu, books.slice(1));
+    })
+    .catch(function (sisaWaktu) {
+      console.log("waktu habis");
+    });
+};
 
-readPromise(10000, 0);
+readBooks(10000, books);
