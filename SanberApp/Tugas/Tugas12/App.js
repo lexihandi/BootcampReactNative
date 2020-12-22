@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.page}>
         <View style={styles.navbar}>
           <Image source={require('./images/logo.png')} style={styles.navImg} />
           <View style={styles.rightNav}>
@@ -18,14 +18,15 @@ export default class App extends Component {
             </TouchableOpacity>
           </View>
         </View>
-        <Text>asd</Text>
+        <View style={styles.body}></View>
+        <View style={styles.tabBar}></View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1},
+  page: {flex: 1},
   navbar: {
     height: 55,
     backgroundColor: '#fff',
@@ -41,4 +42,11 @@ const styles = StyleSheet.create({
   },
   rightNav: {flexDirection: 'row'},
   navItem: {marginLeft: 25},
+  body:{flex:1},
+  tabBar: {
+    height: 60,
+    backgroundColor: 'red',
+    borderTopWidth: 0.5,
+    borderColor: '#E5E5E5',
+  },
 });
