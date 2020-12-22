@@ -1,7 +1,16 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
-import {Text, StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  TouchableOpacity,
+  FlatList,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import VideoItem from './components/videoItem';
+import data from './data.json';
 
 export default class App extends Component {
   render() {
@@ -18,8 +27,34 @@ export default class App extends Component {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.body}></View>
-        <View style={styles.tabBar}></View>
+        <View style={styles.body}>
+          <FlatList
+            data={data.items}
+            renderItem={(video) => <VideoItem video={video.item} />}
+            keyExtractor={(item) => item.id}
+            itemSeparatorComponent={() => (
+              <View style={{height: 0.5, backgroundColor: '#E5E5E5'}} />
+            )}
+          />
+        </View>
+        <View style={styles.tabBar}>
+          <TouchableOpacity style={styles.tabItem}>
+            <Icon name="home" size={25} />
+            <Text style={styles.tabTitle}>Home</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.tabItem}>
+            <Icon name="whatshot" size={25} />
+            <Text style={styles.tabTitle}>Trending</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.tabItem}>
+            <Icon name="subscriptions" size={25} />
+            <Text style={styles.tabTitle}>Subscriptions</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.tabItem}>
+            <Icon name="folder" size={25} />
+            <Text style={styles.tabTitle}>Library</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -30,7 +65,7 @@ const styles = StyleSheet.create({
   navbar: {
     height: 55,
     backgroundColor: '#fff',
-    elevation: 3,
+    elevation: 5,
     alignItems: 'center',
     flexDirection: 'row',
     paddingHorizontal: 15,
@@ -42,11 +77,15 @@ const styles = StyleSheet.create({
   },
   rightNav: {flexDirection: 'row'},
   navItem: {marginLeft: 25},
-  body:{flex:1},
+  body: {flex: 1},
   tabBar: {
     height: 60,
-    backgroundColor: 'red',
+    backgroundColor: 'white',
     borderTopWidth: 0.5,
     borderColor: '#E5E5E5',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
   },
+  tabItem: {alignItems: 'center', justifyContent: 'center'},
+  tabTitle: {fontSize: 11, color: '#3c3c3c', paddingTop: 4},
 });
