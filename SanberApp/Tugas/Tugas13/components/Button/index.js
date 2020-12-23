@@ -14,6 +14,11 @@ const Button = ({name}) => {
 export default Button;
 
 const styles = StyleSheet.create({
-  Btn: {backgroundColor: 'white'},
+  Btn: {
+    backgroundColor: 'white',
+    paddingVertical: 8,
+    borderRadius: 6,
+    marginBottom: 20,
+  },
   title: {textAlign: 'center', fontFamily: fonts.primary[700], fontSize: 18},
 });
