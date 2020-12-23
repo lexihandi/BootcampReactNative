@@ -1,6 +1,6 @@
 import React from 'react';
-import Login from './Tugas/Tugas13/Login';
+import {Login, Register} from './Tugas/Tugas13/';
 
 export default function App() {
-  return <Login />;
+  return <Register />;
 }

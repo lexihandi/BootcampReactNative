@@ -47,6 +47,6 @@ const styles = StyleSheet.create({
     marginTop: 7,
     color: '#F8F8FF',
   },
-  desc: {color: '#828387', marginBottom: 32},
+  desc: {color: '#828387', marginBottom: 32, textAlign:'center'},
   desc2: {color: '#F8F8FF'},
 });
