@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {colors, fonts} from '../../utils';
-import {Button} from '../../components';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const Login = () => {
   return (
-    <View style={styles.page}>
+    <View style={styles.container}>
       <View>
         <Text style={styles.title}>Let's sign you in.</Text>
         <Text style={styles.descTitle}>Welcome back. You've been missed!</Text>
       </View>
-      <View>
-        <Button name="Sign In" />
-        <Button name="Register" />
+      <View style={styles.Btn}>
+        <Text style={styles.desc}>
+          Don’t have an account?<Text style={styles.desc2}> Register</Text>
+        </Text>
+        <Text>asd</Text>
       </View>
     </View>
   );
@@ -22,15 +22,18 @@ const Login = () => {
 export default Login;
 
 const styles = StyleSheet.create({
-  page: {
+  container: {
     padding: 30,
+    justifyContent: 'space-between',
+    backgroundColor: '#1B1C1E',
     flex: 1,
   },
-  title: {fontFamily: fonts.primary.bold, fontSize: 28},
   descTitle: {
-    fontFamily: fonts.primary.normal,
     fontSize: 24,
     maxWidth: 220,
     marginTop: 7,
+    color: '#F8F8FF',
   },
+  desc: {color: '#828387', marginBottom: 23},
+  desc2: {color: '#F8F8FF'},
 });

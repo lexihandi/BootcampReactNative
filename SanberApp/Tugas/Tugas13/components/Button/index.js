@@ -1,11 +1,12 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {fonts} from '../../utils';
 
 const Button = ({name}) => {
   return (
     <View style={styles.Btn}>
-      <Text styles={styles.title}>{name}</Text>
+      <Text style={styles.title}>{name}</Text>
     </View>
   );
 };
@@ -13,6 +14,6 @@ const Button = ({name}) => {
 export default Button;
 
 const styles = StyleSheet.create({
-  Btn: {backgroundColor: 'black'},
-  title: {textAlign: 'center'},
+  Btn: {backgroundColor: 'white'},
+  title: {textAlign: 'center', fontFamily: fonts.primary[700], fontSize: 18},
 });
