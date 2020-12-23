@@ -12,10 +12,8 @@ const Login = () => {
         <Text style={styles.descTitle}>Welcome back. You've been missed!</Text>
       </View>
       <View>
-        <Text>
-          Dont have an account?<Text> Register</Text>
-        </Text>
-        <Button name="Sign In"/>
+        <Button name="Sign In" />
+        <Button name="Register" />
       </View>
     </View>
   );
@@ -26,8 +24,6 @@ export default Login;
 const styles = StyleSheet.create({
   page: {
     padding: 30,
-    justifyContent: 'space-between',
-    backgroundColor: 'yellow',
     flex: 1,
   },
   title: {fontFamily: fonts.primary.bold, fontSize: 28},
