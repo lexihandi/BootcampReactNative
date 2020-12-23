@@ -1,6 +1,7 @@
 import React from 'react';
-import {Login, Register} from './Tugas/Tugas13/';
+import {YoutubeUI} from './Tugas/Tugas12';
+import {Login, Register, About} from './Tugas/Tugas13/';
 
 export default function App() {
-  return <Register />;
+  return <About />;
 }

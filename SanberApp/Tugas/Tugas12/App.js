@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import VideoItem from './components/videoItem';
 import data from './data.json';
 
-export default class App extends Component {
+export default class YoutubeUI extends Component {
   render() {
     return (
       <View style={styles.page}>

@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-import Login from './Login';
-import Register from './Register';
-import About from './About';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
+import About from './Pages/About';
 
 export {Login, Register, About};
