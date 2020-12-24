@@ -1,21 +1,72 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, {Component} from 'react';
 import {
-  View,
-  Text,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
   StyleSheet,
+  Text,
+  View,
+  TextInput,
+  ScrollView,
+  TouchableOpacity,
 } from 'react-native';
-
 import Note from './Note';
 
-export default class Main extends React.Component {
+export default class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      noteArray: [],
+      noteText: '',
+    };
+  }
+
+  addNote = () => {
+    if (this.state.noteText) {
+      var d = new Date();
+      this.state.noteArray.push({
+        'date': `${d.getFullYear()} / ${(d.getMonth() + 1)} / ${d.getDate()}`,
+        'note': this.state.noteText,
+      });
+      this.setState({noteArray: this.state.noteArray});
+      this.setState({noteText: ''});
+    }
+  };
+
+  deleteNote(key) {
+    this.state.noteArray.splice(key, 1);
+    this.setState({noteArray: this.state.noteArray});
+  }
+
   render() {
+    let notes = this.state.noteArray.map((val, key) => {
+      return (
+        <Note
+          key={key}
+          keyval={key}
+          val={val}
+          deleteMethod={() => this.deleteNote(key)}
+        />
+      );
+    });
     return (
-      <View>
-        <Text>asd</Text>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>- NOTER -</Text>
+        </View>
+
+        <ScrollView style={styles.scrollContainer}>{notes}</ScrollView>
+
+        <View style={styles.footer}>
+          <TextInput
+            style={styles.textInput}
+            onChangeText={(noteText) => this.setState({noteText})}
+            value={this.state.noteText}
+            placeholder=">note"
+            placeholderTextColor="white"
+            underlineColorAndroid="transparent" />
+        </View>
+        <TouchableOpacity onPress={this.addNote} style={styles.addButton}>
+          <Text style={styles.addButtonText}>+</Text>
+        </TouchableOpacity>
       </View>
     );
   }

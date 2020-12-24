@@ -9,7 +9,21 @@ import {
   StyleSheet,
 } from 'react-native';
 
-export default class Note extends React.Component {}
+export default class Note extends React.Component {
+  render() {
+    return (
+      <View key={this.props.kevval} style={styles.note}>
+        <Text style={styles.noteText}>{this.props.val.date}</Text>
+        <Text style={styles.noteText}>{this.props.val.note}</Text>
+        <TouchableOpacity
+          style={styles.noteDelete}
+          onPress={this.props.deleteMethod}>
+          <Text style={styles.noteDeleteText}>X</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   note: {
