@@ -4,6 +4,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import {
   SignIn,
   CreateAccount,
@@ -19,6 +20,7 @@ const Tabs = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
 const SearchStack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const HomeStackScreen = () => (
   <HomeStack.Navigator>
@@ -39,11 +41,7 @@ const HomeStackScreen = () => (
 
 const ProfileStackScreen = () => (
   <ProfileStack.Navigator>
-    <ProfileStack.Screen
-      name="Profile"
-      component={Search}
-      options={{headerShown: false}}
-    />
+    <ProfileStack.Screen name="Profile" component={Profile} />
   </ProfileStack.Navigator>
 );
 
@@ -62,13 +60,20 @@ const SearchStackScreen = () => (
   </SearchStack.Navigator>
 );
 
+const TabsScreen = () => (
+  <Tabs.Navigator>
+    <Tabs.Screen name="Home" component={HomeStackScreen} />
+    <Tabs.Screen name="Search" component={SearchStackScreen} />
+  </Tabs.Navigator>
+);
+
 export default function Index() {
   return (
     <NavigationContainer>
-      <Tabs.Navigator>
-        <Tabs.Screen name="Home" component={HomeStackScreen} />
-        <Tabs.Screen name="Search" component={SearchStackScreen} />
-      </Tabs.Navigator>
+      <Drawer.Navigator>
+        <Drawer.Screen name="Home" component={TabsScreen} />
+        <Drawer.Screen name="Profile" component={ProfileStackScreen} />
+      </Drawer.Navigator>
       {/* <AuthStack.Navigator>
         <AuthStack.Screen
           name="SignIn"
