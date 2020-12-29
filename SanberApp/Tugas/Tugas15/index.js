@@ -1,19 +1,21 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+/* eslint-disable prettier/prettier */
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {SignIn, CreateAccount} from './Screen';
 
-export default function App() {
+const AuthStack = createStackNavigator();
+
+export default function Index() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <NavigationContainer>
+      <AuthStack.Navigator>
+        <AuthStack.Screen name="SignIn" component={SignIn} />
+        <AuthStack.Screen name="CreateAccount" component={CreateAccount} />
+      </AuthStack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
+const styles = StyleSheet.create({});
