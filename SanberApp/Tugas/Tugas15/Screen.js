@@ -22,18 +22,27 @@ const ScreenContainer = ({children}) => (
   <View style={styles.container}>{children}</View>
 );
 
-export const Home = () => (
+export const Home = ({navigation}) => (
   <ScreenContainer>
     <Text>Master List Screen</Text>
-    <Button title="React Native by Example" onPress={() => alert('todo!')} />
-    <Button title="React Native School" onPress={() => alert('todo!')} />
+    <Button
+      title="React Native by Example"
+      onPress={() =>
+        navigation.push('Details', {name: 'React Native by Example'})
+      }
+    />
+    <Button
+      title="React Native School"
+      onPress={() => navigation.push('Details', {name: 'React Native School'})}
+    />
     <Button title="Drawer" onPress={() => alert('todo!')} />
   </ScreenContainer>
 );
 
-export const Details = () => (
+export const Details = ({route}) => (
   <ScreenContainer>
     <Text>Details Screen</Text>
+    {route.params.name && <Text>{route.params.name}</Text>}
   </ScreenContainer>
 );
 
