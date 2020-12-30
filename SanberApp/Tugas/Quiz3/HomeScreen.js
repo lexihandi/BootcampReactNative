@@ -115,7 +115,7 @@ class ListItem extends React.Component {
         <Image
           source={{uri: data.gambaruri}}
           style={styles.itemImage}
-          resizeMode="contain"
+          resizeMode="cover"
         />
         <Text numberOfLines={2} ellipsizeMode="tail" style={styles.itemName}>
           {data.nama}
@@ -149,6 +149,10 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
     padding: 10,
+    marginBottom: 10,
+    backgroundColor: 'white',
+    marginHorizontal: 10,
+    height: 280,
   },
   itemImage: {
     width: 100,
@@ -158,13 +162,16 @@ const styles = StyleSheet.create({
   itemName: {
     textAlign: 'center',
     fontWeight: 'bold',
+    marginVertical: 10,
   },
   itemPrice: {
     textAlign: 'center',
     color: 'blue',
+    marginBottom: 10,
   },
   itemStock: {
     textAlign: 'center',
+    marginBottom: 10,
   },
   itemButton: {
     width: '40%',
