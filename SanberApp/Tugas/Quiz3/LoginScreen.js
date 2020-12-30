@@ -22,6 +22,12 @@ export default class LoginScreen extends React.Component {
     //? dan tampilkan userName tersebut di halaman Home setelah teks "Hai,"
 
     // Kode di sini
+    if (this.state.password !== '12345678') {
+      this.setState({isError: true});
+    } else {
+      this.setState({isError: false});
+      this.props.navigation.navigate('Home', {userName: this.state.userName});
+    }
     // clue gunakan if dan else
   }
 

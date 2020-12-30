@@ -49,7 +49,7 @@ export default class HomeScreen extends React.Component {
               Hai,{'\n'}
               {/* //? #Soal 1 Tambahan, Simpan userName yang dikirim dari halaman Login pada komponen Text di bawah ini */}
               <Text style={styles.headerText}>
-                {/* {this.props.route.params.userName} */}
+                {this.props.route.params.userName}
               </Text>
             </Text>
 
