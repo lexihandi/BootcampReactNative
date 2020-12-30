@@ -30,6 +30,8 @@ export default class HomeScreen extends React.Component {
   }
 
   updatePrice(price) {
+    price = this.state.totalPrice + parseInt(price);
+    this.setState({totalPrice: price});
     //? #Soal Bonus (10 poin)
     //? Buatlah teks 'Total Harga' yang akan bertambah setiap kali salah satu barang/item di klik/tekan.
     //? Di sini, buat fungsi untuk menambahkan nilai dari state.totalPrice dan ditampilkan pada 'Total Harga'.
@@ -154,7 +156,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   itemName: {
-    // textAlign: 'center',
+    textAlign: 'center',
     fontWeight: 'bold',
   },
   itemPrice: {
