@@ -30,8 +30,13 @@ export default class HomeScreen extends React.Component {
   }
 
   updatePrice(price) {
-    price = this.state.totalPrice + parseInt(price);
-    this.setState({totalPrice: price});
+    //? #Soal Bonus (10 poin)
+    //? Buatlah teks 'Total Harga' yang akan bertambah setiap kali salah satu barang/item di klik/tekan.
+    //? Di sini, buat fungsi untuk menambahkan nilai dari state.totalPrice dan ditampilkan pada 'Total Harga'.
+
+    // Kode di sini
+    const totalPrice = this.state.totalPrice + Number(price);
+    this.setState({totalPrice});
   }
 
   render() {
@@ -77,7 +82,17 @@ export default class HomeScreen extends React.Component {
 
         // Lanjutkan di bawah ini!
         */}
-        {/* clue dapat dilihat di https://snack.expo.io/@kameyin/two-column-flatlist-(method-1) */}
+        <FlatList
+          data={data.produk}
+          renderItem={(listProduk) => (
+            <TouchableOpacity
+              onPress={() => this.updatePrice(listProduk.item.harga)}>
+              <ListItem data={listProduk.item} />
+            </TouchableOpacity>
+          )}
+          keyExtractor={(item) => item.id}
+          numColumns={2}
+        />
       </View>
     );
   }
@@ -92,7 +107,7 @@ class ListItem extends React.Component {
   //? Buatlah styling komponen ListItem, agar dapat tampil dengan baik di device
 
   render() {
-    const data = this.props.data.item;
+    const data = this.props.data;
     return (
       <View style={styles.itemContainer}>
         <Image
@@ -106,8 +121,10 @@ class ListItem extends React.Component {
         <Text style={styles.itemPrice}>
           {this.currencyFormat(Number(data.harga))}
         </Text>
-        <Text style={styles.itemStock}>Sisa stok: {data.stock - 1}</Text>
-        <Button title="BELI" color="blue" onPress={this.props.updatePrice} />
+        <Text style={styles.itemStock}>Sisa stok: {data.stock}</Text>
+        <View style={styles.itemButton}>
+          <Button title="BELI" color="blue" />
+        </View>
       </View>
     );
   }
@@ -127,17 +144,29 @@ const styles = StyleSheet.create({
   //? Lanjutkan styling di sini
   itemContainer: {
     width: DEVICE.width * 0.44,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#FFFFFF',
-    marginHorizontal: 5,
-    marginVertical: 5,
-    padding: 5,
+    alignContent: 'center',
+    justifyContent: 'center',
+    padding: 10,
   },
-  itemImage: {},
-  itemName: {},
-  itemPrice: {},
-  itemStock: {},
-  itemButton: {},
+  itemImage: {
+    width: 100,
+    height: 100,
+    alignSelf: 'center',
+  },
+  itemName: {
+    // textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  itemPrice: {
+    textAlign: 'center',
+    color: 'blue',
+  },
+  itemStock: {
+    textAlign: 'center',
+  },
+  itemButton: {
+    width: '40%',
+    alignSelf: 'center',
+  },
   buttonText: {},
 });
