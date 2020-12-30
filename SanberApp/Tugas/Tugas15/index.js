@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+// import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {
-  SignIn,
-  CreateAccount,
+  // SignIn,
+  // CreateAccount,
   Profile,
   Home,
   Search,
@@ -15,7 +15,7 @@ import {
   Search2,
 } from './Screen';
 
-const AuthStack = createStackNavigator();
+// const AuthStack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
@@ -90,4 +90,4 @@ export default function Index() {
   );
 }
 
-const styles = StyleSheet.create({});
+// const styles = StyleSheet.create({});
