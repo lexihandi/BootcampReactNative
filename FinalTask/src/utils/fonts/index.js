@@ -1,0 +1,16 @@
+/* eslint-disable prettier/prettier */
+export const fonts = {
+  primary: {
+    100: 'Poppins-Thin',
+    200: 'Poppins-ExtraLight',
+    300: 'Poppins-Light',
+    400: 'Poppins-Regular',
+    500: 'Poppins-Medium',
+    600: 'Poppins-SemiBold',
+    700: 'Poppins-Bold',
+    800: 'Poppins-ExtraBold',
+    900: 'Poppins-Black',
+    normal: 'Poppins-Regular',
+    Bold: 'Poppins-600',
+  },
+};
