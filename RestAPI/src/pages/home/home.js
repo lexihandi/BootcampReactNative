@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   ScrollView,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import {IconAccount, ILDoctor} from '../../assets';
 import Provinsi from '../../provinsi';
@@ -36,20 +37,21 @@ export default class App extends Component {
   }
 
   render() {
+    const {navigate} = this.props.navigation;
     if (this.state.isLoading) {
       return (
         <View>
-          <ActivityIndicator color="white" />
+          <ActivityIndicator />
         </View>
       );
     } else {
       let data = this.state.dataSource.map((val, key) => {
         return (
           <View key={key} style={styles.wrapper}>
-            <View style={styles.box}>
+            <TouchableOpacity style={styles.box}>
               <Text style={styles.item}>{val.positif}</Text>
               <Text style={styles.titleItem}>Positif</Text>
-            </View>
+            </TouchableOpacity>
             <View style={styles.boxSembuh}>
               <Text style={styles.item}>{val.sembuh}</Text>
               <Text style={styles.titleItem}>Sembuh</Text>
@@ -63,14 +65,22 @@ export default class App extends Component {
       });
       return (
         <View style={styles.page}>
+          <StatusBar backgroundColor="#222831" barStyle="light-content" />
           <View style={styles.header}>
             <View>
-              <Text style={styles.headerText}>Info Copid</Text>
+              <Text style={styles.headerText}>Salam Sehat,</Text>
+              <Text style={styles.headerText}>
+                {this.props.route.params.userName}
+              </Text>
               <Text style={styles.headerTextt}>#staysafe #dirumahaja</Text>
             </View>
             <TouchableOpacity style={styles.icon}>
               <IconAccount
-                onPress={() => this.props.navigation.push('About')}
+                onPress={() =>
+                  navigate('About', {
+                    userName: this.props.route.params.userName,
+                  })
+                }
               />
             </TouchableOpacity>
           </View>
@@ -80,7 +90,7 @@ export default class App extends Component {
             </View>
             {data}
             <Text style={styles.headerTexttt}>Data Provinsi</Text>
-            <Provinsi />
+            <Provinsi navigation={this.props.navigation} />
           </ScrollView>
         </View>
       );
@@ -98,7 +108,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  headerText: {fontSize: 28, color: '#f8f8ff', fontFamily: fonts.primary[600]},
+  headerText: {
+    fontSize: 20,
+    color: '#f8f8ff',
+    fontFamily: fonts.primary[600],
+  },
   headerTextt: {
     fontSize: 14,
     color: '#838391',

@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   BackHandler,
   Alert,
+  StatusBar,
 } from 'react-native';
 import {Input, Button} from '../../components';
 import {fonts} from '../../utils';
@@ -47,13 +48,14 @@ export default class Login extends Component {
       this.setState({isError: true});
     } else {
       this.setState({isError: false});
-      this.props.navigation.replace('Home');
+      this.props.navigation.replace('Home', {userName: this.state.userName});
     }
   }
 
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar backgroundColor="#222831" barStyle="light-content" />
         <View>
           <Text style={styles.title}>Let's sign you in.</Text>
           <Text style={styles.descTitle}>
@@ -72,7 +74,8 @@ export default class Login extends Component {
           />
         </View>
         <View>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Register')}>
             <Text style={styles.desc}>
               Don’t have an account?
               <Text style={styles.desc2}> Register</Text>

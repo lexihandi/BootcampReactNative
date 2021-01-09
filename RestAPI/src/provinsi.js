@@ -7,9 +7,10 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
+import {IconRoundedSmall} from './assets';
 import {fonts} from './utils';
 
-export default class App extends Component {
+export default class Provinsi extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,22 +33,8 @@ export default class App extends Component {
       });
   }
 
-  // async componentDidMount() {
-  //   try {
-  //     const response = await fetch(
-  //       'https://api.kawalcorona.com/indonesia/provinsi',
-  //     );
-  //     const responseJson = await response.json();
-  //     this.setState({
-  //       isLoading: false,
-  //       dataSource: responseJson,
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
   render() {
+    const {navigate} = this.props.navigation;
     if (this.state.isLoading) {
       return (
         <View>
@@ -58,10 +45,32 @@ export default class App extends Component {
       let data = this.state.dataSource.map((val, key) => {
         return (
           <View key={key} style={styles.wrapper}>
-            <TouchableOpacity style={styles.box}>
-              <Text style={styles.item}>{val.attributes.Provinsi}</Text>
-              <Text style={styles.itemm}>{val.attributes.Kasus_Posi}</Text>
-              <Text style={styles.titleItem}>Positif</Text>
+            <IconRoundedSmall />
+            <TouchableOpacity
+              style={styles.box}
+              onPress={() =>
+                navigate('Detail', {
+                  prov: val.attributes.Provinsi,
+                  positif: val.attributes.Kasus_Posi,
+                  sembuh: val.attributes.Kasus_Semb,
+                  meninggal: val.attributes.Kasus_Meni,
+                })
+              }>
+              <View style={styles.icon}>
+                <IconRoundedSmall />
+                <Text style={styles.item}>{val.attributes.Provinsi}</Text>
+                <IconRoundedSmall />
+              </View>
+              <View style={styles.icon}>
+                <IconRoundedSmall />
+                <Text style={styles.itemm}>{val.attributes.Kasus_Posi}</Text>
+                <IconRoundedSmall />
+              </View>
+              <View style={styles.icon}>
+                <IconRoundedSmall />
+                <Text style={styles.titleItem}>Positif</Text>
+                <IconRoundedSmall />
+              </View>
             </TouchableOpacity>
           </View>
         );
@@ -87,6 +96,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     fontFamily: fonts.primary[300],
+  },
+  icon: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginVertical: 4,
   },
   itemm: {
     color: '#dddddd',

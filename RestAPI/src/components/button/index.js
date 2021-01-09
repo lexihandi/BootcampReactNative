@@ -20,5 +20,5 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     marginBottom: 20,
   },
-  title: {textAlign: 'center', fontFamily: fonts.primary[700], fontSize: 18},
+  title: {textAlign: 'center', fontFamily: fonts.primary[600], fontSize: 18},
 });

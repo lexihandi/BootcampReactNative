@@ -9,6 +9,7 @@ import {
   ScrollView,
   BackHandler,
   Alert,
+  StatusBar,
 } from 'react-native';
 import {
   IconBack,
@@ -36,6 +37,7 @@ export default class About extends Component {
   render() {
     return (
       <View style={styles.page}>
+        <StatusBar backgroundColor="#f8f8ff" barStyle="dark-content" />
         <View style={styles.header}>
           <TouchableOpacity>
             <IconBack onPress={() => this.props.navigation.navigate('Home')} />
@@ -48,7 +50,7 @@ export default class About extends Component {
               source={require('../../assets/Img_Profile.png')}
               style={styles.img}
             />
-            <Text style={styles.name}>Lexi Handi Nayana</Text>
+            <Text style={styles.name}>{this.props.route.params.userName}</Text>
             <Text style={styles.city}>Malang</Text>
             <Text style={styles.city}>Mahasiswa</Text>
           </View>
@@ -59,7 +61,7 @@ export default class About extends Component {
                 <IconRectangle style={styles.rectangle} />
                 <View style={styles.data}>
                   <Text style={styles.title}>No HP</Text>
-                  <Text style={styles.text}>6285608887368</Text>
+                  <Text style={styles.text}>62812345678</Text>
                 </View>
               </View>
             </View>
@@ -69,7 +71,7 @@ export default class About extends Component {
                 <IconRectangle style={styles.rectangle} />
                 <View style={styles.data}>
                   <Text style={styles.title}>Email</Text>
-                  <Text style={styles.text}>lexihandi@gmail.com</Text>
+                  <Text style={styles.text}>huxley@gmail.com</Text>
                 </View>
               </View>
             </View>
