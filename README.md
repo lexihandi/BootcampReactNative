@@ -1,1 +1,1 @@
-# BootcampReactNative by SanberCode
+# Bootcamp React Native by SanberCode
